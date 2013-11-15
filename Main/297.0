@@ -1,0 +1,4 @@
+/* Menu events - Help ~index... */
+Arg window self
+
+start view.exe' Goat.inf' 

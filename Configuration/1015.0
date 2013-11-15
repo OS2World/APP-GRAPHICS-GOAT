@@ -1,0 +1,5 @@
+/* Event Clicked/selected - Autorun  1015 */
+Arg window self
+
+/* Get button state Autorun1015 Check Box */
+textautorun = VpIsSelected(window,1015)

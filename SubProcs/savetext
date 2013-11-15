@@ -1,0 +1,25 @@
+
+/* Contents changed? 1001 Multi-Line Entry Field */
+flag=VpItem(window,1001,'SENDMSG','0x01ba')
+if length(textfilename)>0  then
+  do
+    if flag=1 then
+      do
+        response=VpMessageBox(window,'GOAT - Save Text File','You are about to overwrite the current text file.  Do you want to continue?','YESNO')
+        if response='YES' then
+        do
+          /* Save item to file 1001 Multi-Line Entry Field */
+          CALL VpSaveToFile window,1001,textfilename
+          /* Set changed flag off 1001 Multi-Line Entry Field */
+          CALL VpItem window,1001,'SENDMSG','0x01bb','0','0'
+        end
+      end
+    else
+      response=VpMessageBox(window,'GOAT - Save Text File','No changes have been made.')
+  end
+  else
+    if flag=1 then
+      Call savetextas
+    else
+      response=VpMessageBox(window,'GOAT - Save Text File','No changes have been made.')
+      

@@ -1,0 +1,5 @@
+/* Menu events - Paste text */
+Arg window self
+
+/* Paste text from clipboard 1001 Multi-Line Entry Field */
+CALL VpItem window,1001,'SENDMSG','0x01da'

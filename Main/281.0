@@ -1,0 +1,14 @@
+/* Menu events - ~Text */
+Arg window self
+
+view='TEXT'
+
+
+/* Check the item  ~Image278 Menu Item */
+CALL VpSelect window,278,0
+/* Uncheck the item ~Text281 Menu Item */
+CALL VpSelect window,281,1
+/* Uncheck the item ~Standard282 Menu Item */
+CALL VpSelect window,282,0
+
+call resizemain

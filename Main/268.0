@@ -1,0 +1,4 @@
+/* Menu events - Save image as... */
+Arg window self
+
+call saveimageas

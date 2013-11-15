@@ -1,0 +1,5 @@
+/* Menu events - Start OCR on selection */
+Arg window self
+
+/* Select item 1015 Push Button */
+CALL VpSelect window,1015

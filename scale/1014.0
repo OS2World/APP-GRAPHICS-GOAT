@@ -1,0 +1,19 @@
+/* Event Clicked/selected - ~Cancel  1014 */
+Arg window self
+
+/*
+/* Set image attributes 1000 Image Editor */
+CALL VpImgEdt mainwindow, 1000, 'SETBMPATTRIBUTES', originalx, originaly, numcolors
+
+/* Set item value 1002 Entry Field */
+CALL VpSetItemValue window,1002,originalx
+/* Set item value 1003 Entry Field */
+CALL VpSetItemValue window,1003,originaly
+
+CALL VpWindow window,'CLOSE' */
+
+CALL VpImgEdt mainwindow, 1000, 'SETBMPATTRIBUTES', originalx, originaly, numcolors
+/* Clear 1000 Image Editor */
+CALL VpImgEdt mainwindow, 1000, 'CLEAR'
+/* Paste 1000 Image Editor */
+CALL VpImgEdt mainwindow, 1000, 'PASTE'

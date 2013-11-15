@@ -1,0 +1,6 @@
+/* Menu events - Open text... */
+Arg window self
+
+userselecttextfile=1
+
+Call opentext

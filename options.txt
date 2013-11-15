@@ -1,0 +1,36 @@
+ Optical Character Recognition --- gocr 0.3.6
+ using: gocr [options] pnm_file_name  # use - for stdin
+ options:
+ -h        - get this help
+ -i name   - input image file (pnm,pgm,pbm,ppm,pcx,...)
+ -i -      - read PNM from stdin (djpeg -gray a.jpg | gocr -)
+ -o name   - output file  (redirection of stdout)
+ -e name   - logging file (redirection of stderr)
+ -p name   - database path (including final slash, default is ./db/)
+ -f fmt    - output format (ISO8859_1 TeX HTML UTF8)
+ -l num    - grey level 0<160<=255
+ -d num    - dust_size (remove all smaller clusters, 10=default)
+ -s num    - spacewidth/dots (0 = autodetect)
+ -v num    - verbose  [summed]
+      1      print more info
+      2      list shapes  of boxes (see -c)
+      4      list pattern of boxes (see -c)
+      8      print pattern after recognition
+     16      print line infos
+     32      debug outXX.pgm
+ -c string - list of chars (_ = not recognized chars)
+ -m num    - operation modes, ~ = switch off
+      2      use database (early development)
+      4      layout analysis, zoning (development)
+      8      ~ compare non recognized chars
+     16      ~ divide overlapping chars
+     32      ~ context correction
+     64      char packing (development)
+    130      extend database, prompts user (128+2, early development)
+    256      switch off the OCR engine (makes sense together with -m 2)
+ -n   1      only numbers
+ examples:
+	gocr -v 33 text1.pbm                # some infos + out30.bmp
+	gocr -v 7 -c _YV text1.pbm          # list unknown, Y and V chars
+	djpeg -pnm -gray text.jpg | gocr -  # use jpeg-file via pipe
+

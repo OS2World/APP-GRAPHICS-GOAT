@@ -1,0 +1,11 @@
+/* Event Clicked/selected -   1008 */
+Arg window self
+
+
+
+/* fuck the scale method...too much hassle!!!  */
+
+/* Open the form C:\Programs\dev\gocr\Project\scale */
+value=VpOpenForm(window, 259, 'topic name')
+
+

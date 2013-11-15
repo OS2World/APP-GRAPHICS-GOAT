@@ -1,0 +1,4 @@
+/* Menu events - Save text as... */
+Arg window self
+
+Call savetextas

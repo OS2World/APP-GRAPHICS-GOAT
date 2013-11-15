@@ -1,0 +1,40 @@
+if (imagetype=1) | (imagetype=2) then
+  do
+    ocrtmpimagefilename=imagename||'_TMP.TIF'
+    CALL VpImgEdt window, 1000, 'SAVE', ocrtmpimagefilename, pal1bpp
+    tifftopnm ocrtmpimagefilename' > 'imagename||'_TMP.PNM'||' 2>>error.log'
+  end
+
+if gocrconfigopen=1 then
+  call ocrconfigvals
+
+call buildocrparam
+
+/* this shit should really be moved in to buildocrparm */
+
+/* Get current index 1018 Spin Button */
+ttype=VpGetItemValue(window, 1018, 'INDEX')
+
+if ttype=0 then
+  do
+    gocr||ocrparameters||' '||imagename||'_TMP.PNM > '||imagename||'.TXT 2>>error.log'
+    textfilename=imagename'.TXT'
+    userselecttextfile=0
+end
+if ttype=1 then
+  do
+    gocr||ocrparameters||'  -f TeX '||imagename||'_TMP.PNM > '||imagename||'.TXT 2>>error.log'
+    textfilename=imagename'.TXT'
+    userselecttextfile=0
+end
+if ttype=2 then
+  do
+    gocr||ocrparameters||'  -f HTML '||imagename||'_TMP.PNM > '||imagename||'.TXT 2>>error.log'
+    textfilename=imagename'.TXT'
+    userselecttextfile=0
+end
+
+rc=SysFileDelete(imagename||'_TMP.PNM')
+
+call opentext
+

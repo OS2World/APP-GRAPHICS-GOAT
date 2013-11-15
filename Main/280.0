@@ -1,0 +1,5 @@
+/* Menu events - Copy image selection */
+Arg window self
+
+/* Copy 1000 Image Editor */
+CALL VpImgEdt window, 1000, 'COPY'

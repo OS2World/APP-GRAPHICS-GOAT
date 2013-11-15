@@ -1,0 +1,8 @@
+/* Event Clicked/selected -   1014 */
+Arg window self
+
+/* this is in ocrscanimage
+ if gocrconfigopen=1 then
+  call ocrconfigvals */
+
+call ocrscanimage

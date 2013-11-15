@@ -1,0 +1,4 @@
+/* Event Clicked/selected -   1007 */
+Arg window self
+
+Call VpImgEdt window, 1000, 'ROTATE90'

@@ -1,0 +1,25 @@
+
+/* Get changed flag 1000 Image Editor */
+flag=VpImgEdt(window, 1000, 'GETCHANGED')
+if length(imagefilename)>0  then
+  do
+    if flag=1 then
+      do
+        response=VpMessageBox(window,'GOAT - Save Image File','You are about to overwrite the current image file.  Do you want to continue?','YESNO')
+        if response='YES' then
+          do
+            /*  rc=SysFileDelete(imagefilename) */
+            CALL VpImgEdt window, 1000, 'SAVE', imagefilename, pal1bpp
+            if convertimage=1 then
+              tifftopnm imagefilename' > 'imagename||'.PNM'||' 2>>error.log'
+          end
+      end
+    else
+      response=VpMessageBox(window,'GOAT - Save Image File','No changes have been made.')
+  end
+  else
+    if flag=1 then
+      Call saveimageas
+    else
+      response=VpMessageBox(window,'GOAT - Save Image File','No changes have been made.')
+      

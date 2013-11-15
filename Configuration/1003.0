@@ -1,0 +1,7 @@
+/* Event Clicked/selected - Find...  1003 */
+Arg window self
+
+dirsearch=0
+
+imageeditor=VpFileDialog(window,'OPEN','*.EXE','GOAT - Find')
+call vpsetitemvalue window,1002,imageeditor

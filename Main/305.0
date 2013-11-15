@@ -1,0 +1,5 @@
+/* Menu events - Scale */
+Arg window self
+
+/* Open the form C:\Programs\dev\gocr\Project\scale */
+value=VpOpenForm(window, 259, 'topic name')

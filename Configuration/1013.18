@@ -1,0 +1,21 @@
+/* Event Slider/spin tracking - Spin Button  1013 */
+Arg window self
+
+/* Get item value 1004 Entry Field */
+currenttexteditor = VpGetItemValue(window,1004)
+/* Get item value 1009 Entry Field */
+currenttextparam = VpGetItemValue(window,1009)
+
+if currenttexeditor<>texteditor.ttype then
+  do
+    if length(currenttexteditor)>0 then
+      rc=stream(currenttexteditor,'C','QUERY EXISTS')
+      else rc=0
+    if length(rc)>0 | currenttexteditor='' then
+      texteditor.ttype=currenttexteditor
+  end
+
+if currenttextparam<>textparameters.ttype then
+  textparameters.ttype=currenttextparam
+
+call settexteditorbox

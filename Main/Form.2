@@ -1,0 +1,16 @@
+/* Form events - Closed */
+Arg window 
+
+response=VpMessageBox(window,'GOAT - Goodbye?','Are you sure you want to exit GOAT?','YESNO')
+
+/* RETURN 1 PREVENTS THE WINDOW FROM CLOSING ON THIS EVENT!! */
+
+if response ='NO' then
+  RETURN 1
+else
+  do
+    rc=stream(imagename||'_TMP.TIF','c','query exists')
+    if length(rc) > 0 then
+      rc=SysFileDelete(imagename||'_TMP.TIF')
+    call saveini
+  end

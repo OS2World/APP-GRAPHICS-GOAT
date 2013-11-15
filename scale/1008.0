@@ -1,0 +1,8 @@
+/* Event Clicked/selected - ~Cancel  1008 */
+Arg window self
+
+
+/* Uncheck the item Set size by percentage1009 Radio Button */
+CALL VpSelect window,1009,0
+/* Give item focus 1004 Entry Field */
+CALL VpItem window,1004,'FOCUS'

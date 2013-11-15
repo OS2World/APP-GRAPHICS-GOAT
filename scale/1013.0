@@ -1,0 +1,17 @@
+/* Event Clicked/selected - ~OK  1013 */
+Arg window self
+
+CALL VpImgEdt mainwindow, 1000, 'SETBMPATTRIBUTES', originalx, originaly, numcolors
+/* Clear 1000 Image Editor */
+CALL VpImgEdt mainwindow, 1000, 'CLEAR'
+/* Paste 1000 Image Editor */
+CALL VpImgEdt mainwindow, 1000, 'PASTE'
+
+/* Get item value 1002 Entry Field */
+newx = VpGetItemValue(window,1002)
+/* Get item value 1003 Entry Field */
+newy = VpGetItemValue(window,1003)
+
+/* Set image attributes 1000 Image Editor */
+CALL VpImgEdt mainwindow, 1000, 'SETBMPATTRIBUTES', newx, newy, numcolors
+

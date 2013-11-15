@@ -1,0 +1,6 @@
+Arg window self
+
+CALL VpWindow window,'CLOSE'
+/* Event Clicked/selected - OK  1002 */
+
+

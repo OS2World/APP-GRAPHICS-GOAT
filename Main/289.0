@@ -1,0 +1,4 @@
+/* Menu events - Text Editor */
+Arg window self
+
+call externaltexteditor

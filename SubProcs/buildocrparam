@@ -1,0 +1,47 @@
+/* build gocr command parameters */
+ocrparameters=''
+modeoptions=0
+verboseoptions=0
+numoption=0
+if curocrval.1 > 0 then
+  ocrparameters =' -s '||curocrval.1
+/* this IF was taken out because GOCR says 160 is default but actually 0 is */
+/* now we just pass everything and let GOCR figure the crap out */
+/* if curocrval.2 <> 160 then */
+  ocrparameters = ocrparameters||' -l '||curocrval.2
+if curocrval.3 <> 10 then
+  ocrparameters = ocrparameters||' -d '||curocrval.3
+if curocrval.4 = 1 then
+  modeoptions = 2
+if curocrval.5 = 1 then
+  modeoptions=modeoptions+4
+if curocrval.6 = 0 then
+  modeoptions=modeoptions+8
+if curocrval.7 = 0 then
+  modeoptions=modeoptions+16
+if curocrval.8 = 0 then
+  modeoptions=modeoptions+32
+if curocrval.9 = 1 then
+  modeoptions=modeoptions+64
+if curocrval.10=1 then
+  numoption=1
+/*  if curocrval.11 = 1 then
+  modeoptions=modeoptions+130 */
+if curocrval.11 = 1 then
+  verboseoptions = 1
+if curocrval.12 = 1 then
+  verboseoptions=modeoptions+2
+if curocrval.13 = 1 then
+  verboseoptions=modeoptions+4
+if curocrval.14 = 1 then
+  verboseoptions=modeoptions+8
+if curocrval.15 = 1 then
+  verboseoptions=modeoptions+16
+if curocrval.16 = 1 then
+  verboseoptions=modeoptions+32
+if modeoptions > 0
+  then ocrparameters=ocrparameters||' -m '||modeoptions
+if verboseoptions > 0
+  then ocrparameters=ocrparameters||' -v '||verboseoptions
+if numoptions >0
+  then ocrparameters=ocrparameters||' -n '||numoption

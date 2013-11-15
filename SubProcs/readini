@@ -1,0 +1,68 @@
+/* checks for the ini file and reads in the data */
+
+IF LENGTH(iniloc) > 0
+    THEN
+      DO
+        imageeditor=LINEIN(iniloc,1,1)
+        imageparameters=LINEIN(iniloc)
+        imageautorun=LINEIN(iniloc)
+        texteditor.0=LINEIN(iniloc)
+        texteditor.1=LINEIN(iniloc)
+        texteditor.2=LINEIN(iniloc)
+        textparameters.0=LINEIN(iniloc)
+        textparameters.1=LINEIN(iniloc)
+        textparameters.2=LINEIN(iniloc)
+        textautorun=LINEIN(iniloc)
+        do i=1 to 16
+          curocrval.i=LINEIN(iniloc)
+        end
+	drop i
+/*     stereo=LINEIN(iniloc)            /* 6  */
+        opl=LINEIN(iniloc)               /* 7  */
+        volume=LINEIN(iniloc)            /* 8  */
+	tweak=LINEIN(iniloc)             /* 9  */
+        stretch=LINEIN(iniloc)           /* 10  */
+        vsync=LINEIN(iniloc)             /* 11  */
+        alwaysync=LINEIN(iniloc)         /* 12  */
+        tripbuff=LINEIN(iniloc)          /* 13  */
+        scanlines=LINEIN(iniloc)         /* 14  */
+        vgafreq=LINEIN(iniloc)           /* 15  */
+        ntsc=LINEIN(iniloc)              /* 16  */
+        coldpth=LINEIN(iniloc)           /* 17  */
+        monitor=LINEIN(iniloc)           /* 18  */
+        rot=LINEIN(iniloc)               /* 19  */
+        flipx=LINEIN(iniloc)             /* 20  */
+        flipy=LINEIN(iniloc)             /* 21  */
+        norot=LINEIN(iniloc)             /* 22  */
+        frameskip=LINEIN(iniloc)         /* 23  */
+        waitint=LINEIN(iniloc)           /* 24  */
+        antiali=LINEIN(iniloc)           /* 25  */
+        beam=LINEIN(iniloc)              /* 26  */
+        flicker=LINEIN(iniloc)           /* 27  */
+        transluc=LINEIN(iniloc)          /* 28  */
+        resolution=LINEIN(iniloc)        /* 29  */
+        windowed=LINEIN(iniloc)          /* 30  */
+        errlog=LINEIN(iniloc)            /* 31  */
+        debug=LINEIN(iniloc)             /* 32  */
+        cheat=LINEIN(iniloc)             /* 33  */
+        igncfg=LINEIN(iniloc)            /* 34  */
+        record=LINEIN(iniloc)            /* 35  */
+        recfile=LINEIN(iniloc)           /* 36  */
+        play=LINEIN(iniloc)              /* 37  */
+        playfile=LINEIN(iniloc)          /* 38  */
+*/
+        rc=stream(iniloc,'C','CLOSE')
+   END
+/*
+   /* if no ini, make a new ini file, not done yet  */
+   ELSE
+      DO
+        filename=SYSSEARCHPATH('PATH''DPATH', 'mamerun.exe')
+        inidrive=filespec('drive',filename)
+        inipth=filespec('path',filename)
+        inipath=inidrive||inipth
+        iniloc=inipath || 'mamerun.ini'
+/**        CALL LINEOUT iniloc,mameprog,1 
+        rc=stream(iniloc,'C','CLOSE') **/
+      END 
+*/

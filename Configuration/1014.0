@@ -1,0 +1,4 @@
+/* Event Clicked/selected - Autorun  1014 */
+Arg window self
+
+imageautorun=VpIsSelected(window,1014)

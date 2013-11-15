@@ -1,0 +1,13 @@
+/* Get line count 1001 Multi-Line Entry Field */
+textlines=VpItem(window,1001,'SENDMSG','0x01bc')
+
+/* Get item value 1001 Multi-Line Entry Field */
+alltext = VpGetItemValue(window,1001)
+
+line.0=textlines
+do index = 1 to line.0
+  parse var alltext subtext '0d0a'x alltext
+  line.index = subtext
+end /* end do */
+drop index
+Call VpPrint window,,textfilename,'Page %d','LIST','','line.'

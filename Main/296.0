@@ -1,0 +1,5 @@
+/* Menu events - Configure OCR */
+Arg window self
+
+/* Open the form C:\Programs\dev\gocr\Project\Gocrconfig */
+value=VpOpenForm(window, 257, 'topic name')

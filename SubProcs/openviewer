@@ -1,0 +1,16 @@
+CALL VpWindow window,'SETTITLE','GOAT - 'topic
+call centerwindow
+
+/* Disable item Clear1003 Push Button */
+CALL VpItem window,1003,'DISABLE'
+
+rc=stream(topic,'C','QUERY EXISTS')
+
+if (length(topic) > 0) & (length(rc) >0) then
+  do
+    /* Load item from file 1000 Multi-Line Entry Field */
+    CALL VpLoadFromFile window,1000, topic
+    if topic='error.log' then
+      CALL VpItem window,1003,'ENABLE' /* Enable item Clear1003 Push Button */
+  end
+

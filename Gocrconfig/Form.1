@@ -1,0 +1,22 @@
+/* Form events - Opened */
+Arg window 
+
+call centerwindow
+
+gocrconfigwin=window
+
+/* Set item value 1001 Slider */
+CALL VpSetItemValue window,1001,curocrval.1*2
+
+/* Set item value 1002 Slider */
+CALL VpSetItemValue window,1002,curocrval.2/2
+
+/* Set item value 1003 Slider */
+CALL VpSetItemValue window,1003,curocrval.3*2
+
+do i = 4 to 16
+  windowid=1000+i
+  /* Check the item Check Box */
+  CALL VpSelect window,windowid,curocrval.i
+end
+

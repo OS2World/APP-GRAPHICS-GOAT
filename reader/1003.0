@@ -1,0 +1,9 @@
+/* Event Clicked/selected - Clear  1003 */
+Arg window self
+
+rc=SysFileDelete(topic)
+
+/* Select all items 1000 Multi-Line Entry Field */
+CALL VpSelect window,1000,'ALL',1
+/* Delete selected 1000 Multi-Line Entry Field */
+CALL VpItem window,1000,'SENDMSG','0x01db'

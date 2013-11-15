@@ -1,0 +1,25 @@
+/* Event Changed -   1005 */
+Arg window self
+
+/* Get item value 1005 Entry Field */
+pixely = VpGetItemValue(window,1005)
+if pixely>0 then
+  newy=pixely
+else
+  newy=0
+
+/* Set item value 1003 Entry Field */
+CALL VpSetItemValue window,1003,newy
+
+/* Get button state Preserve aspect ratio1012 Check Box */
+flag1 = VpIsSelected(window,1012)
+/* Is entry field read only? 1004 Entry Field */
+flag2 = VpItem(window,1004,'SENDMSG','0x014a')
+if flag1=1 & flag2=1 then
+  do
+    pixelx=trunc(originalx*(newy/originaly))
+    /* Set item value 1004 Entry Field */
+    CALL VpSetItemValue window,1004,pixelx
+  end
+
+

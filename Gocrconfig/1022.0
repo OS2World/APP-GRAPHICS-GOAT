@@ -1,0 +1,5 @@
+/* Event Clicked/selected - Save  1022 */
+Arg window self
+
+call ocrconfigvals
+call saveini

@@ -1,0 +1,5 @@
+/* Menu events - Image Editor */
+Arg window self
+
+call externalimageeditor
+

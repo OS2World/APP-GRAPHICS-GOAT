@@ -1,0 +1,38 @@
+/* Form events - Opened */
+Arg window 
+
+originalx=0
+originaly=0
+percentx=100
+percenty=100
+
+call centerwindow
+
+/* Get image attributes 1000 Image Editor */
+rc=VpImgEdt(mainwindow, 1000, 'GETBMPATTRIBUTES')
+  PARSE VAR rc x y numcolors
+originalx=x
+originaly=y
+
+/* Select all 1000 Image Editor */
+CALL VpImgEdt mainwindow, 1000, 'SELECTALL'
+/* Copy 1000 Image Editor */
+CALL VpImgEdt mainwindow, 1000, 'COPY'
+
+do i = 1000 to 1005 by 2
+  /* Set item value 1016 Entry Field */
+  CALL VpSetItemValue window,i,x
+  /* Set item value 1017 Entry Field */
+  CALL VpSetItemValue window,(i+1),y
+end /* end do */
+drop i
+/* Set item value 1006 Entry Field */
+CALL VpSetItemValue window,1006,percentx
+/* Set item value 1007 Entry Field */
+CALL VpSetItemValue window,1007,percenty
+
+/* Check the item  Set size by pixels1008 Radio Button */
+CALL VpSelect window,1008,1
+
+/* Check the item  Preserve aspect ratio1012 Check Box */
+CALL VpSelect window,1012,1

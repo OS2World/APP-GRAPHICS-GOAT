@@ -1,0 +1,5 @@
+/* Event Clicked/selected -   1003 */
+Arg window self
+
+call saveimage
+

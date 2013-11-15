@@ -1,0 +1,4 @@
+/* Menu events - Print image... */
+Arg window self
+
+call printimage

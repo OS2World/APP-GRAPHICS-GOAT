@@ -1,0 +1,4 @@
+/* Menu events - menu item */
+Arg window self
+
+rc=VpItem(window, 1000, 'PAINT')

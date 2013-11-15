@@ -1,0 +1,5 @@
+/* Menu events - Crop image */
+Arg window self
+
+/* Crop 1000 Image Editor */
+CALL VpImgEdt window, 1000, 'CROP'

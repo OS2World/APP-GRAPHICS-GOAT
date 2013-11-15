@@ -1,0 +1,60 @@
+/* Event Clicked/selected - DONE  1006 */
+Arg window self
+
+closewindow=0
+
+/* Get current index 1013 Spin Button */
+ttype=VpGetItemValue(window, 1013, 'INDEX')
+
+/* Get item value 1002 Entry Field */
+value1 = VpGetItemValue(window,1002)
+/* Get item value 1008 Entry Field */
+imageparameters = VpGetItemValue(window,1008)
+/* Get item value 1004 Entry Field */
+value3 = VpGetItemValue(window,1004)
+/* Get item value 1009 Entry Field */
+textparameters.ttype = VpGetItemValue(window,1009)
+
+If length(value1)>0 then
+  rc1=stream(value1,'C','QUERY EXISTS')
+else rc1=''
+  
+if length(value3)>0 then
+  rc2=stream(value3,'C','QUERY EXISTS')
+else rc2=''
+    
+
+if length(rc1)>0 | length(value1)=0 then
+  do
+    imageeditor=value1
+    closewindow=1
+  end
+if length(rc2)>0 | length(value3)=0 then
+  do
+    texteditor.ttype=value3
+    closewindow=closewindow+2
+  end
+
+If closewindow=3 then
+  do
+    call saveini
+    CALL VpWindow window,'CLOSE'
+  end
+  else
+     DO
+       if closewindow=2 then
+         do
+           response=VpMessageBox(window,'GOAT - ERROR','You have entered an invalid path or program for the Image Editor.')
+           imageeditor=oldimageeditor
+           /* Set item value 1002 Entry Field */
+           CALL VpSetItemValue window,1002,oldimageeditor
+         end
+       if closewindow=1 then
+         do
+           response=VpMessageBox(window,'GOAT - ERROR','You have entered an invalid path or program for the Text Editor.')
+           texteditor.ttype=oldtexteditor.ttype
+           /* Set item value 1004 Entry Field */
+           CALL VpSetItemValue window,1004,texteditor.ttype
+         end
+     END
+

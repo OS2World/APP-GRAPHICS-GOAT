@@ -1,0 +1,16 @@
+/* Menu events - - */
+Arg window self
+
+/* Get item value 1017 Spin Button */
+zoompercent = VpGetItemValue(window,1017)
+
+select
+  when (zoompercent <= 100) & (zoompercent > 25) then
+    zoompercent=zoompercent-25
+  when zoompercent = 150 then
+    zoompercent=100
+  otherwise
+    zoompercent=150
+end
+
+call zoomimage

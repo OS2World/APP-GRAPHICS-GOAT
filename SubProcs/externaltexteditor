@@ -1,0 +1,12 @@
+/* Get current index 1018 Spin Button */
+ttype=VpGetItemValue(window, 1018, 'INDEX')
+
+parse var textparameters.ttype one '%s' two
+
+if length(one)>0 then
+  alltxtparam=' '||one||textfilename
+else alltxtparam=' '||textfilename
+if length(two)>0 then
+  alltxtparam=alltxtparam||two
+
+start texteditor.ttype||alltxtparam

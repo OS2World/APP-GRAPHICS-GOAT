@@ -1,0 +1,63 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+   <meta name="author" content="Jason Stefanovich">
+   <meta name="GENERATOR" content="Mozilla/4.61 [en] (OS/2; U) [Netscape]">
+   <title>Editor Methods</title>
+</head>
+<body>
+
+<center><b><tt><font size=+3>Editor Methods</font></tt></b></center>
+
+<p><a NAME="Image_Editor_Methods:"></a><b><tt><font size=+2>Image Editor
+Methods:</font></tt></b>
+<br><b><tt><font size=+1>Cut:</font></tt></b>
+<br><tt>Removes the currently selected region from the image.&nbsp; The
+removed section is copied to the system clip-board.</tt>
+<br><b><tt><font size=+1>Copy:</font></tt></b>
+<br><tt>Copies the currently selected region from the image to the clip-board.</tt>
+<br><b><tt><font size=+1>Paste:</font></tt></b>
+<br><tt>Pastes the current contents of the clipboard into the image</tt>
+<br><b><tt><font size=+1>Scale:</font></tt></b>
+<br><tt>Increase/Decrease the actual size of the image through the use
+of interpolation.</tt>
+<br><b><tt><font size=+1>Zoom:</font></tt></b>
+<br><tt>A magnifying effect, allowing the user to view the image in more/less
+detail.</tt>
+<br><b><tt><font size=+1>Rotate:</font></tt></b>
+<br><tt>Changes the orientation of the image in 90 degree increments.</tt>
+<br><b><tt><font size=+1>Select/Deselect All:</font></tt></b>
+<br><tt>Selects/Deselects the entire area of the image.</tt>
+<br><b><tt><font size=+1>Undo:</font></tt></b>
+<br><tt>Returns the image to it's state before the most recent change.&nbsp;
+The current implementation is a single level, wrapping undo.&nbsp; It is
+only valid for a subset of&nbsp; the Image Editor methods.</tt><tt></tt>
+<p><a NAME="Text_Editor_Methods:"></a><b><tt><font size=+2>Text Editor
+Methods:</font></tt></b>
+<br><b><tt><font size=+1>Cut:</font></tt></b>
+<br><tt>Removes the currently selected characters from the text.&nbsp;
+The removed section is copied to the system clip-board.</tt>
+<br><b><tt><font size=+1>Copy:</font></tt></b>
+<br><tt>Copies the currently selected characters from the text to the clip-board.</tt>
+<br><b><tt><font size=+1>Paste:</font></tt></b>
+<br><tt>Pastes the current contents of the clipboard into the text.</tt>
+<br><b><tt><font size=+1>Select/Deselect All:</font></tt></b>
+<br><tt>Selects/Deselects the entire body of the text.</tt>
+<br><b><tt><font size=+1>Undo:</font></tt></b>
+<br><tt>Returns the text to it's state before the most recent change.&nbsp;
+The current implementation is a single level, wrapping undo. It is only
+valid for a subset of&nbsp; the Text Editor methods.</tt><tt></tt>
+<p><a NAME="OCR_Methods:"></a><b><tt><font size=+2>OCR Methods:</font></tt></b>
+<br><b><tt><font size=+1>OCR Image:</font></tt></b>
+<br><tt>Passes the currently loaded image to GOCR and reads the results
+into the text editor, overwriting any current contents.</tt>
+<br><b><tt><font size=+1>OCR on selection:</font></tt></b>
+<br><tt>Passes the selected region of the currently loaded image to GOCR
+and reads the results into the text editor, overwriting any current contents.&nbsp;
+If no region is selected then no results will be displayed.</tt>
+<br><b><tt><font size=+1>OCR Configuration:</font></tt></b>
+<br><tt>See <a href="GOCR_config.html">GOCR Configuration</a>.</tt>
+</body>
+</html>

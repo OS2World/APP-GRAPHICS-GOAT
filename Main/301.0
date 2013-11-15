@@ -1,0 +1,5 @@
+/* Menu events - Configure editors */
+Arg window self
+
+/* Open the form C:\Programs\dev\gocr\Project\Configuration */
+value=VpOpenForm(window, 258, 'topic name')

@@ -1,0 +1,4 @@
+/* Event Clicked/selected -   1006 */
+Arg window self
+
+call externalimageeditor

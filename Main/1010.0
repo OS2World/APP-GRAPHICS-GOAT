@@ -1,0 +1,6 @@
+/* Event Clicked/selected -   1010 */
+Arg window self
+
+Call savetext
+
+

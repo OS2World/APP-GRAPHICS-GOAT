@@ -1,0 +1,4 @@
+/* Event Clicked/selected -   1013 */
+Arg window self
+
+call externaltexteditor

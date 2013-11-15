@@ -1,0 +1,35 @@
+select
+  when zoompercent=25 then
+    do
+      zoomlevel=truesize/4
+      spinindex=3
+    end 
+  when zoompercent=50 then
+    do
+      zoomlevel=truesize/2
+      spinindex=2
+    end
+  when zoompercent=75 then
+    do
+      zoomlevel=(truesize/4)*3
+      spinindex=1
+    end
+  when zoompercent=100 then
+    do
+      zoomlevel=truesize
+      spinindex=0
+    end
+  when zoompercent=150 then
+    do
+      zoomlevel=(truesize/2)+truesize
+      spinindex=4
+    end
+end
+
+/* Set item value 1017 Spin Button */
+CALL VpSetItemValue window,1017,spinindex
+
+
+/* Set zoom level  Image Editor */
+CALL VpImgEdt window, 1000, 'SETZOOM', zoomlevel
+

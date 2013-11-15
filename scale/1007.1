@@ -1,0 +1,24 @@
+/* Event Enter -   1007 */
+Arg window self
+
+
+/* Set read only off 1007 Entry Field */
+rc=VpItem(window,1007,'SETSTYLEBIT', 5, 0)
+
+/* Get button state Set size by percentage1009 Radio Button */
+flag = VpIsSelected(window,1009)
+if flag=0 then
+  do
+    /* Check the item  Set size by percentage1009 Radio Button */
+    CALL VpSelect window,1009,1
+    /* Uncheck the item Set size by pixels1008 Radio Button */
+    CALL VpSelect window,1008,0
+  end
+
+/* Get button state Preserve aspect ratio1012 Check Box */
+flag = VpIsSelected(window,1012)
+  if flag=1 then
+    do
+      /* Set read only on 1006 Entry Field */
+      rc=VpItem(window,1006,'SETSTYLEBIT', 5, 1)
+    end

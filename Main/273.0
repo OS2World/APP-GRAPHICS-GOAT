@@ -1,0 +1,4 @@
+/* Menu events - Print text... */
+Arg window self
+
+call printtext

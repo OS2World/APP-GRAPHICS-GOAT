@@ -1,0 +1,5 @@
+/* Menu events - Open last scan */
+Arg window self
+
+/* Open the form C:\Programs\dev\gocr\Project\batch */
+value=VpOpenForm(window, 260, 'topic name')

@@ -1,0 +1,9 @@
+parse var imageparameters one '%s' two
+
+if length(one)>0 then
+  allimgparam=' '||one||imagefilename
+else allimgparam=' '||imagefilename
+if length(two)>0 then
+  allimgparam=allimgparam||two
+
+start imageeditor||allimgparam

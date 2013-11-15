@@ -1,0 +1,26 @@
+/* Form events - Opened */
+Arg window 
+
+call centerwindow
+
+/* Add several items to end 1013 Spin Button */
+index=VpAddItem(window, 1013, 'END', 'ISO', 'TeX', 'HTML')
+
+/* Set item value 1002 Entry Field */
+CALL VpSetItemValue window,1002,imageeditor
+
+/* Set item value 1008 Entry Field */
+CALL VpSetItemValue window,1008,imageparameters
+
+/* Set item value 1004 Entry Field */
+CALL VpSetItemValue window,1004,texteditor
+
+/* Set item value 1008 Entry Field */
+CALL VpSetItemValue window,1008,textparameters
+
+if length(iniloc)>0 then
+  call readini
+
+call setimageeditorbox
+call settexteditorbox
+call setoldeditors

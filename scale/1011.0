@@ -1,0 +1,15 @@
+/* Event Clicked/selected - Double  1011 */
+Arg window self
+
+/*/* Get item value 1002 Entry Field */
+newx = VpGetItemValue(window,1002)
+/* Get item value 1003 Entry Field */
+newy = VpGetItemValue(window,1003)*/
+
+doublex=trunc(originalx*2)
+doubley=trunc(originaly*2)
+
+/* Set item value 1002 Entry Field */
+CALL VpSetItemValue window,1002,doublex
+/* Set item value 1003 Entry Field */
+CALL VpSetItemValue window,1003,doubley

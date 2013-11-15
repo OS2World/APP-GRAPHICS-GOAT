@@ -1,0 +1,35 @@
+/* read OCR Config Values */
+
+/* Get item value 1001 Slider */
+curocrval.1 = VpGetItemValue(gocrconfigwin,1026)
+/* Get item value 1002 Slider */
+curocrval.2 = VpGetItemValue(gocrconfigwin,1027)
+/* Get item value 1003 Slider */
+curocrval.3 = VpGetItemValue(gocrconfigwin,1028)
+/* Get button state Use database1004 Check Box */
+curocrval.4 = VpIsSelected(gocrconfigwin,1004)
+/* Get button state Layout analysis1005 Check Box */
+curocrval.5 = VpIsSelected(gocrconfigwin,1005)
+/* Get button state Compare1006 Check Box */
+curocrval.6 = VpIsSelected(gocrconfigwin,1006)
+/* Get button state Divide1007 Check Box */
+curocrval.7 = VpIsSelected(gocrconfigwin,1007)
+/* Get button state Context correction1008 Check Box */
+curocrval.8 = VpIsSelected(gocrconfigwin,1008)
+/* Get button state Check box1009 Check Box */
+curocrval.9 = VpIsSelected(gocrconfigwin,1009)
+/* Get button state Numeric1010 Check Box */
+curocrval.10 = VpIsSelected(gocrconfigwin,1010)
+/* Get button state More info1011 Check Box */
+curocrval.11 = VpIsSelected(gocrconfigwin,1011)
+/* Get button state List chapes1012 Check Box */
+curocrval.12 = VpIsSelected(gocrconfigwin,1012)
+/* Get button state list pattern1013 Check Box */
+curocrval.13 = VpIsSelected(gocrconfigwin,1013)
+/* Get button state list all paterns1014 Check Box */
+curocrval.14 = VpIsSelected(gocrconfigwin,1014)
+/* Get button state line info1015 Check Box */
+curocrval.15 = VpIsSelected(gocrconfigwin,1015)
+/* Get button state Debug1016 Check Box */
+curocrval.16 = VpIsSelected(gocrconfigwin,1016)
+

@@ -1,0 +1,4 @@
+/* Menu events - Open image... */
+Arg window self
+
+call openimage

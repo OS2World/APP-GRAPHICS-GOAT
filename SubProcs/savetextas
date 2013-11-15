@@ -1,0 +1,10 @@
+textfilename = VpFileDialog(window,'SAVE','*.txt','GOAT - Save Text File As')
+IF LENGTH(textfilename) > 0 THEN
+  do
+    /* Save item to file 1001 Multi-Line Entry Field */
+    CALL VpSaveToFile window,1001,textfilename
+    /* Set changed flag off 1001 Multi-Line Entry Field */
+    CALL VpItem window,1001,'SENDMSG','0x01bb','0','0'
+  end
+
+

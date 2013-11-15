@@ -1,0 +1,4 @@
+/* Event Clicked/selected - Exit  1024 */
+Arg window self
+
+CALL VpWindow window,'CLOSE'

@@ -1,0 +1,7 @@
+/* Event Clicked/selected - Set size by percentage  1009 */
+Arg window self
+
+/* Uncheck the item Set size by pixels1008 Radio Button */
+CALL VpSelect window,1008,0
+/* Give item focus 1006 Entry Field */
+CALL VpItem window,1006,'FOCUS'

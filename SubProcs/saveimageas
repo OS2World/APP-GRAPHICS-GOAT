@@ -1,0 +1,33 @@
+imagefilename = VpFileDialog(window,'SAVE',filetypes,'GOAT - Save Image File As')
+IF LENGTH(imagefilename) > 0 THEN
+  do
+    parse upper value imagefilename with,
+      imagename'.'ext
+    imagetype=0
+    Do i=1 to 25 
+      if word(extensions, i) = translate(ext) then
+      Do
+        if translate(ext)='PNM' then
+          /* need to use pnmtotiff */
+          imagetype=2
+        /* everything else is internal */
+        else imagetype=1
+      End
+    End
+    drop i
+    if imagetype=2 then
+      do
+        convertimage=1
+        imagefilename=imagename||'_TMP.TIF'
+        CALL VpImgEdt window, 1000, 'SAVE', imagefilename, 'PAL1BPP'
+        tifftopnm imagefilename' > 'imagename||'.PNM'||' 2>>error.log'
+      end
+      else
+        do
+          convertimage=0
+          /* Save image 1000 Image Editor */
+          CALL VpImgEdt window, 1000, 'SAVE', imagefilename, 'PAL1BPP'
+        end
+  end
+
+

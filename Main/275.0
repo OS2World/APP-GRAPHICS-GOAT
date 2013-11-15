@@ -1,0 +1,4 @@
+/* Menu events - Undo (image) */
+Arg window self
+
+call undoimage

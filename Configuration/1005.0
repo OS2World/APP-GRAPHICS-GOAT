@@ -1,0 +1,8 @@
+/* Event Clicked/selected - Find...  1005 */
+Arg window self
+
+dirsearch=1
+
+texteditor=VpFileDialog(window,'OPEN','*.EXE','GOAT - Find')
+/* Set item value 1004 Entry Field */
+CALL VpSetItemValue window,1004,texteditor

@@ -1,0 +1,5 @@
+/* Menu events - General help... */
+Arg window self
+
+/* Open the form C:\Programs\dev\gocr\Project\reader */
+value=VpOpenForm(window, 261, 'readme.txt')

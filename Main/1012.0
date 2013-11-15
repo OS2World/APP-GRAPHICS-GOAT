@@ -1,0 +1,4 @@
+/* Event Clicked/selected -   1012 */
+Arg window self
+
+Call undotext

@@ -1,0 +1,4 @@
+/* Menu events - Undo (text) */
+Arg window self
+
+Call undotext

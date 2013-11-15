@@ -1,0 +1,5 @@
+/* Event Clicked/selected -   1009 */
+Arg window self
+
+userselecttextfile=1
+Call opentext

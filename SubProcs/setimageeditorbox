@@ -1,0 +1,11 @@
+/* Set item value 1002 Entry Field */
+CALL VpSetItemValue window,1002,imageeditor
+
+/* Set item value 1008 Entry Field */
+CALL VpSetItemValue window,1008,imageparameters
+
+if imageautorun=1 then
+  CALL VpSelect window,1014,1  /* Check the item  Autorun1015 Check Box */
+else
+  CALL VpSelect window,1014,0  /* Uncheck the item Autorun1015 Check Box */
+

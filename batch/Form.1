@@ -1,0 +1,11 @@
+/* Form events - Opened */
+Arg window 
+
+
+/* View as tree 1000 Container */
+rc=VpSetItemStyle(window,1000,'TREE')
+/* View as mini icons 1000 Container */
+rc=VpSetItemStyle(window,1000,'MINIICON')
+
+/* Load with directory folders 1000 Container */
+CALL VpLoadFromFile window,1000,'FOLDERS','C:\OS2\'

@@ -1,0 +1,18 @@
+/* Get current index 1013 Spin Button */
+ttype=VpGetItemValue(window, 1013, 'INDEX')
+
+texteditor=texteditor.ttype
+textparameters=textparameters.ttype
+
+/* Set item value 1004 Entry Field */
+CALL VpSetItemValue window,1004,texteditor.ttype
+
+/* Set item value 1009 Entry Field */
+CALL VpSetItemValue window,1009,textparameters.ttype
+
+if textautorun=1 then
+  CALL VpSelect window,1015,1  /* Check the item  Autorun1015 Check Box */
+else
+  CALL VpSelect window,1015,0  /* Uncheck the item Autorun1015 Check Box */
+
+

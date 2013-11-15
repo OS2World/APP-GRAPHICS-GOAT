@@ -1,0 +1,21 @@
+/* set default ini values if none are found */
+
+/* these are already set to null when Main is run */
+/* if length(imageeditor)=0 then
+        imageparameters=LINEIN(iniloc)
+        imageautorun=LINEIN(iniloc)
+        texteditor.0=LINEIN(iniloc)
+        texteditor.1=LINEIN(iniloc)
+        texteditor.2=LINEIN(iniloc)
+        textparameters.0=LINEIN(iniloc)
+        textparameters.1=LINEIN(iniloc)
+        textparameters.2=LINEIN(iniloc)
+        textautorun=LINEIN(iniloc)
+*/
+
+/* if the values are null for the ocrconfig, use defaults */
+do i = 1 to 16
+  if length(curocrval.i)=0 then
+    curocrval.i=defocrval.i
+end
+drop i

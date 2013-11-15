@@ -1,0 +1,21 @@
+/* Event Clicked/selected -   1004 */
+Arg window self
+
+
+/*  Ain't working...try again 
+
+/* Get image attributes 1000 Image Editor */
+rc=VpImgEdt(window, 1000, 'GETBMPATTRIBUTES')
+PARSE VAR rc x y numcolors
+
+
+/* Get item size 1000 Image Editor */
+xy=VpItem(window,1000,'ITEMSIZE')
+PARSE VAR xy x y
+/* Set item position/size 1000 Image Editor */
+CALL VpItem window,1000,'SETITEMPOS',0,0,1024,768
+
+*/
+
+
+call printimage

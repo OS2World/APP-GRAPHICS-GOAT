@@ -1,0 +1,5 @@
+/* Menu events - Select all */
+Arg window self
+
+/* Select all items 1001 Multi-Line Entry Field */
+CALL VpSelect window,1001,'ALL',1

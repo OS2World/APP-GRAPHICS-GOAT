@@ -1,0 +1,64 @@
+imagefilename = VpFileDialog(window,'OPEN',filetypes,'GOAT - Open Image File')
+
+if length(imagefilename) > 0 then
+  do
+    imagefileexist=stream(imagefilename,'C','QUERY EXISTS')
+    parse upper value imagefileexist with,
+    pathandimagename'.'ext
+    value=filespec("name",imagefileexist)
+    parse upper value value with,
+      imagename'.'ext
+  end
+  else
+    imagefileexist=''
+
+imagetype=0
+Do i=1 to 25 
+  if word(extensions, i) = translate(ext) then
+    Do
+      if translate(ext)='PNM' then
+        /* need to use pnmtotiff */
+        imagetype=2
+      /* everything else is internal */
+      else imagetype=1
+    End
+End
+drop i
+IF (LENGTH(imagefileexist) > 0) & (imagetype=1 | imagetype=2) THEN
+  do
+    if imagetype=2 then
+      do
+        convertimage=1
+        pnmtotiff imagefilename||' > '||imagename||'_TMP.TIF'||' 2>>error.log'
+        imagefilename=imagename||'_TMP.TIF'
+      end
+      else convertimage=0
+    /* Load image from file 1000 Image Editor */
+    CALL VpImgEdt window,1000,'LOAD',imagefilename,''
+    imageattributes=VpImgEdt(window, 1000, 'GETBMPATTRIBUTES')
+      parse var imageattributes imagex imagey numcolors
+    if numcolors <> 0 then
+      Call VpImgEdt window, 1000, 'SETBMPATTRIBUTES', x, y, 65536
+    /* Set changed flag off 1000 Image Editor */
+    CALL VpImgEdt window,1000,'RESETCHANGED'
+    /* Get the zoom level value */
+    zoomlevel=VpImgEdt(window, 1000, 'GETZOOM')
+    /* set the title to include the image name */
+    CALL VpWindow window,'SETTITLE','GOAT - '||imagename||'.'||ext
+    if imageautorun=1 then
+      call externalimageeditor
+  end
+  else
+    do
+      if (length(imagefileexist) > 0) & imagetype=0 then
+        response=vpmessagebox(window,'Unknown Format','The File Format Is unknown')
+      else
+        if (length(imagefileexist) = 0) & (length(imagefilename) > 0) then
+          response=vpmessagebox(window,'File Not Found','The File Was not Found')
+    end
+
+rc=vpimgedt(window,1000,'RESETDISABLEUNDO')
+
+/* rc=vpimgedt(window,1000,'GETDISABLEUNDO')
+say rc */
+

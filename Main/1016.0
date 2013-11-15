@@ -1,0 +1,13 @@
+/* Event Clicked/selected -   1016 */
+Arg window self
+
+
+If gocrconfigopen=0 then
+  do
+    gocrconfigopen=1
+    /* Open the form C:\Programs\dev\gocr\Project\Gocrconfig */
+    value=VpOpenForm(window, 257, 'topic name')
+  end
+  else
+    CALL VpWindow gocrconfigwin,'ACTIVATE'
+

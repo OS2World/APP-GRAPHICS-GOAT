@@ -1,0 +1,4 @@
+/* Event Clicked/selected - ~Done  1027 */
+Arg window self
+
+CALL VpWindow window,'CLOSE'

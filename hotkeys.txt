@@ -1,0 +1,54 @@
+GOAT 0.05c hotkey assignments.
+
+File~
+  Open Image                    Ctrl-Alt-O
+  Open Text                     Ctrl-O
+  Save Image                    Ctrl-alt-S
+  Save Text                     Ctrl-S
+  Save Image As                 Ctrl-Alt-A
+  Save Text As                  Ctrl-A
+  Print Image                   Ctrl-Alt-P
+  Print Image Selection         Ctrl-Shift-P
+  Print Text                    Ctrl-P
+  Exit                          Ctrl-X
+
+Image~
+  Undo                          Ctrl-Shift-Z
+  Copy                          Ctrl-Shift-C
+  Crop                          Ctrl-Shift-P
+  Cut                           Ctrl-Shift-Del
+  Paste                         Ctrl-Shift-V
+  Rotate                        Ctrl-Shift-R
+  Scale                         Ctrl-Shift-S
+  Repaint                       Ctrl-Shift-T
+  Select All                    Ctrl-Shift-/
+
+Text~
+  Undo                          Ctrl-Z 
+  Copy                          Ctrl-Ins        (Ctrl-C)
+  Cut                           Ctrl-del        
+  Paste                         Shift-Ins        (Ctrl-V)
+  Select All                    Ctrl-/
+
+OCR~
+  Start OCR                     Alt-O
+  Start OCR on selection        Alt-S
+  Configure OCR                 Alt-C
+
+View~
+  Zoom Image~
+    +                           +
+    -                           -
+  Window~
+    Standard                    F5
+    Image                       F6
+    Text                        F7
+  Error log                     F8
+
+Options~
+  Configure editors             F9
+
+Help~
+  Help index                    F2
+  General help                  F1
+  About                         F12

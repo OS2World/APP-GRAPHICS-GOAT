@@ -1,0 +1,5 @@
+/* Undo 1000 Image Editor */
+
+CALL VpImgEdt window,1000,'UNDO'
+
+/* it seems that all manipulations cannot be "undone" */

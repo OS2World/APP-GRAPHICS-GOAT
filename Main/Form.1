@@ -1,0 +1,107 @@
+/* Form events - Opened */
+Arg window 
+
+/* load rexxutil functions */
+call RxFuncAdd 'SysLoadFuncs', 'RexxUtil', 'SysLoadFuncs'
+call SysLoadFuncs
+call RxFuncAdd 'VputilLoadFuncs', 'VPutil', 'VputilLoadFuncs'
+call VputilLoadFuncs
+
+convertimage=0
+textfilename=''
+subtitle=''
+footer=''
+fontname=''
+filetypes='*.PNM;*.BMP;*.VGA;*.RLE;*.DIB;*.RL4;*.RL8;*.GIF;*.PCX;*.TIF;*.TGA;*.VST;*.AFI;*.IFF;*.LBM;*.VID;*.KPS;*.IAX;*.XBM;*.SPR;*.SPRITE;*.PSE;*.PSEG;*.PSEG38PP;*.PSEG3820'
+extensions='PNM BMP VGA RLE DIB RL4 RL8 GIF PCX TIF TGA VST AFI IFF LBM VID KPS IAX XBM SPR SPRITE PSE PSEG PSEG38PP PSEG3820'
+truesize=65536
+rotate=0
+defocrval.1=0		/* spacewidth         */
+defocrval.2=0		/* graylevel          */
+defocrval.3=10		/* dustsize           */
+defocrval.4=0		/* use database       */
+defocrval.5=0		/* layout analysis    */
+defocrval.6=1		/* compare mode       */
+defocrval.7=1		/* divide mode        */
+defocrval.8=1		/* context correction */
+defocrval.9=0		/* char packing       */
+defocrval.10=0		/* numeric only       */
+defocrval.11=0		/* more info          */
+defocrval.12=0		/* list chapes        */
+defocrval.13=0		/* list pattern       */
+defocrval.14=0		/* list all pattern   */
+defocrval.15=0		/* line infos         */
+defocrval.16=0		/* debug mode         */
+do i = 1 to 16
+  curocrval.i=''
+end
+drop i
+imageeditor=''
+imageparameters=''
+texteditor=''
+textparameters=''
+do i=0 to 2
+  texteditor.i=''
+  textparameters.i=''
+end /* end do */
+drop i
+textautorun=0
+imageautorun=0
+j=0
+inisize=0
+iniloc=SYSSEARCHPATH('PATH', 'goat.ini')
+goatloc=SYSSEARCHPATH('PATH', 'goat.exe')
+gocrconfigopen=0
+view='STANDARD'
+/* Select item ~Standard282 Menu Item */
+CALL VpSelect window,282
+
+/* Add several items to end 1017 Spin Button */
+index=VpAddItem(window, 1017, 'END', '100', '75', '50', '25', '150')
+
+/* Add several items to end 1018 Spin Button */
+index=VpAddItem(window, 1018, 'END', 'ISO', 'TeX', 'HTML')
+
+mainwindow=window
+xsizeysize='600 400'
+
+call centerwindow
+
+if length(iniloc) > 0 then
+  do
+    /* get the number of lines in the inifile */
+    do until lines(iniloc)=0
+      z=LINEIN(iniloc)
+      inisize=inisize+1
+    end /* end do */
+    drop z
+    rc=stream(iniloc,'C','CLOSE')
+  end
+else
+  iniloc=filespec("path",goatloc)||"goat.ini"
+
+if inisize=26 then
+  call readini
+else
+  do
+    call setini
+    call saveini
+  end
+  
+/* load the button bitmaps */
+do i = 1000 to 1015
+  value=VpLoadPicture('RESBMP',i)
+  /* Set item value text1002 Push Button */
+  CALL VpSetItemValue window,(i+2),value
+end
+drop i
+/*
+
+/* Set item value 1018 Bitmap */
+CALL VpSetItemValue window,1018,value
+*/
+/* load the program icon */
+value=VpLoadPicture('RESICON',3000)
+
+/* Reset DISABLEUNDO style 1000 Image Editor */
+call VpImgEdt window, 1000, 'RESETDISABLEUNDO'

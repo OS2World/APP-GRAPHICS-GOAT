@@ -1,0 +1,4 @@
+/* Menu events - About... */
+Arg window self
+
+response=VpMessageBox(window,'GOAT - About...','GOAT beta 0.06 Copyright Jason Stefanovich, 2002')

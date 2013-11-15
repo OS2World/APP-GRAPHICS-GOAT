@@ -1,0 +1,14 @@
+/* Event Mouse button 1 double click - Container  1000 */
+Arg window self index
+
+/* Get item value at index 1000 Container */
+value=VpGetItemValue(window,1000,index)
+
+/* View as details 1000 Container */
+rc=VpSetItemStyle(window,1000,'DETAILS')
+
+/* Delete all items 1000 Container */
+CALL VpDeleteItem window,1000,'ALL'
+
+/* Load item from file 1000 Container */
+CALL VpLoadFromFile window,1000,'C:\OS2\'||value||'\'

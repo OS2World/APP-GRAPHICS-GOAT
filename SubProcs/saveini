@@ -1,0 +1,16 @@
+/* save to the ini file */
+CALL LINEOUT iniloc,imageeditor,1
+CALL LINEOUT iniloc,imageparameters
+CALL LINEOUT iniloc,imageautorun
+CALL LINEOUT iniloc,texteditor.0
+CALL LINEOUT iniloc,texteditor.1
+CALL LINEOUT iniloc,texteditor.2
+CALL LINEOUT iniloc,textparameters.0
+CALL LINEOUT iniloc,textparameters.1
+CALL LINEOUT iniloc,textparameters.2
+CALL LINEOUT iniloc,textautorun
+do i=1 to 16
+  CALL LINEOUT iniloc,curocrval.i
+end
+drop i
+rc=stream(iniloc,'c','close')

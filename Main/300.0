@@ -1,0 +1,5 @@
+/* Menu events - menu item */
+Arg window self
+
+/* Paste 1000 Image Editor */
+CALL VpImgEdt window, 1000, 'PASTE'

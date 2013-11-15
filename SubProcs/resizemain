@@ -1,0 +1,94 @@
+
+mainsizexmainsizey=VpWindow(window,'GETSIZE')
+PARSE VAR mainsizexmainsizey mainsizex mainsizey
+
+/* Get item size text1002 Push Button */
+buttonxbuttony=VpItem(window,1002,'ITEMSIZE')
+PARSE VAR buttonxbuttony buttonx buttony
+
+/* Get item position text1002 Push Button */
+buttonposxbuttonposy=VpItem(window,1002,'ITEMPOS')
+PARSE VAR buttonposxbuttonposy buttonposx buttonposy
+
+topcorner=buttonposy+buttony
+
+buttonposy=topcorner-40
+buttonsize=40
+
+do i=1002 to 1016
+    /* Set item position/size text1002 Push Button */
+    CALL VpItem window,i,'SETITEMPOS',buttonposx,buttonposy,buttonsize,buttonsize
+    if i=1008 then
+      do
+        /* Set item position/size 1017 Spin Button */
+        CALL VpItem window,1017,'SETITEMPOS',(buttonposx+buttonsize),buttonposy,80,buttonsize
+        buttonposx=0
+        buttonposy=buttonposy-buttonsize
+      end
+    else
+      buttonposx=buttonposx+buttonsize
+    if i=1016 then
+      do
+        /* Set item position/size Spin 1018 Text */
+        CALL VpItem window,1018,'SETITEMPOS',buttonposx,buttonposy,80,buttonsize
+      end
+end
+drop i
+
+/* Get item size 1000 Image Editor */
+imagesizeximagesizey=VpItem(window,1000,'ITEMSIZE')
+PARSE VAR imagesizeximagesizey imagesizex imagesizey
+
+/* Get item position 1001 Multi-Line Entry Field */
+textposxtextposy=VpItem(window,1001,'ITEMPOS')
+PARSE VAR textposxtextposy textposx textposy
+/* Get item size 1001 Multi-Line Entry Field */
+textsizextextsizey=VpItem(window,1001,'ITEMSIZE')
+PARSE VAR textsizextextsizey textsizex textsizey
+
+select
+  when view='STANDARD' then
+    do
+      /* Show item 1000 Image Editor */
+      CALL VpItem window,1000,'SHOW'
+      imagesizey=buttonposy-2
+      imagesizex=(mainsizex/2)-7
+      /* Set item position/size 1000 Image Editor */
+      CALL VpItem window,1000,'SETITEMPOS',0,0,imagesizex,imagesizey
+
+      /* Show item 1001 Multi-Line Entry Field */
+      CALL VpItem window,1001,'SHOW'   
+      textsizey=buttonposy-2
+      textsizex=(mainsizex/2)
+      textposx=(mainsizex/2)-7
+      /* Set item position/size 1001 Multi-Line Entry Field */
+      CALL VpItem window,1001,'SETITEMPOS',textposx,textposy,textsizex,textsizey
+    end
+  when view='IMAGE' then
+    do
+      /* Show item 1000 Image Editor */
+      CALL VpItem window,1000,'SHOW'  
+      imagesizey=buttonposy-2
+      imagesizex=mainsizex-8
+      /* Set item position/size 1000 Image Editor */
+      CALL VpItem window,1000,'SETITEMPOS',0,0,imagesizex,imagesizey
+      
+      /* Hide item 1001 Multi-Line Entry Field */
+      CALL VpItem window,1001,'HIDE'    
+    end
+  when view='TEXT' then
+    do
+      /* Hide item 1000 Image Editor */
+      CALL VpItem window,1000,'HIDE'
+      
+      /* Show item 1001 Multi-Line Entry Field */
+      CALL VpItem window,1001,'SHOW'      
+      textsizey=buttonposy-2
+      textsizex=mainsizex-7
+      textposx=0
+      /* Set item position/size 1001 Multi-Line Entry Field */
+      CALL VpItem window,1001,'SETITEMPOS',textposx,textposy,textsizex,textsizey
+    end
+  otherwise
+    NOP
+end    

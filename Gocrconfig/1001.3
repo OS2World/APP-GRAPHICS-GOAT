@@ -1,0 +1,9 @@
+/* Event Changed - Slider  1001 */
+Arg window self
+
+/* Get item value 1001 Slider */
+value = VpGetItemValue(window,1001)
+value = value / 2
+value=trunc(value,0)
+/* Set item value 1026 Text */
+CALL VpSetItemValue window,1026,value

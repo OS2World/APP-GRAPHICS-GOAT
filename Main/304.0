@@ -1,0 +1,4 @@
+/* Menu events - menu item */
+Arg window self
+
+call VpImgEdt window, 1000, 'ROTATE90'

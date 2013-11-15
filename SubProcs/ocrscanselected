@@ -1,0 +1,17 @@
+croptmpimagefilename=imagename||'_CROP.TIF'
+CALL VpImgEdt window, 1000, 'SAVE', croptmpimagefilename, lzw
+
+/* Crop 1000 Image Editor */
+CALL VpImgEdt window, 1000, 'CROP'
+
+if gocrconfigopen=1 then
+  call ocrconfigvals
+
+call ocrscanimage
+
+/* Clear 1000 Image Editor */
+CALL VpImgEdt window, 1000, 'CLEAR'
+/* Load image 1000 Image Editor */
+CALL VpImgEdt window, 1000, 'LOAD', croptmpimagefilename, options
+
+rc=SysFileDelete(croptmpimagefilename)
